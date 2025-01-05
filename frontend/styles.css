@@ -1,0 +1,87 @@
+/* 카드 스타일 */
+.card {
+    border: 1px solid #ccc;               /* 연한 회색 테두리 */
+    padding: 16px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* 기본 그림자 */
+    background-color: #f9f9f9;            /* 연한 배경색 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: box-shadow 0.3s ease;     /* Hover 시 부드러운 전환 효과 */
+    width: 90%;
+}
+
+/* Hover 시 더 진한 그림자 효과 */
+.card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Hover 시 그림자 증가 */
+}
+
+/* 제목과 내용 컨테이너 */
+.content-container {
+    max-width: 75%; /* 버튼과 겹치지 않도록 최대 너비 제한 */
+}
+
+/* 제목 스타일 */
+.card-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+/* 내용 스타일 */
+.card-content {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+/* 버튼 스타일 */
+.view-details-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 120px;              /* 버튼 크기 고정 */
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.view-details-button:hover {
+    background-color: #0056b3;
+}
+
+/* DetailView 제목 스타일 */
+.detail-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+/* DetailView 내용 스타일 */
+.detail-content {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+/* DetailView Back 버튼 스타일 */
+.back-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.back-button:hover {
+    background-color: #0056b3;
+}
