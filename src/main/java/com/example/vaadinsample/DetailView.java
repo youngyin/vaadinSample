@@ -29,37 +29,45 @@ public class DetailView extends VerticalLayout implements HasUrlParameter<Intege
         Optional<Post> postOptional = postService.getPostById(postId);
 
         if (postOptional.isPresent()) {
-            Post post = postOptional.get();
-
-            // 제목 표시
-            Div title = new Div();
-            title.setText(post.getTitle());
-            title.addClassName("detail-title"); // CSS 클래스 적용
-
-            // 내용 표시
-            Div content = new Div();
-            content.setText(post.getContent());
-            content.addClassName("detail-content"); // CSS 클래스 적용
-
-            // Back to List 버튼
-            Button backButton = new Button("Back to List", e ->
-                    getUI().ifPresent(ui -> ui.navigate("list"))
-            );
-            backButton.addClassName("back-button"); // CSS 클래스 적용
-
-            // 컴포넌트 추가
-            add(title, content, backButton);
+            initPresentView(postOptional.get());
 
         } else {
-            // 게시글이 존재하지 않는 경우
-            Div errorMessage = new Div();
-            errorMessage.setText("Post not found.");
-            errorMessage.getStyle().set("color", "red").set("font-size", "18px");
-
-            Button backButton = new Button("Back to List", e ->
-                    getUI().ifPresent(ui -> ui.navigate("list"))
-            );
-            add(errorMessage, backButton);
+            initNotPresentView();
+            
         }
+    }
+
+    void initPresentView(Post post) {
+        // 제목 표시
+        Div title = new Div();
+        title.setText(post.getTitle());
+        title.addClassName("detail-title"); // CSS 클래스 적용
+
+        // 내용 표시
+        Div content = new Div();
+        content.setText(post.getContent());
+        content.addClassName("detail-content"); // CSS 클래스 적용
+
+        // Back to List 버튼
+        Button backButton = new Button("Back to List", e ->
+                getUI().ifPresent(ui -> ui.navigate("list"))
+        );
+        backButton.addClassName("back-button"); // CSS 클래스 적용
+
+        // 컴포넌트 추가
+        add(title, content, backButton);
+    }
+
+    void initNotPresentView(){
+        // 게시글이 존재하지 않는 경우
+        Div errorMessage = new Div();
+        errorMessage.setText("Post not found.");
+        errorMessage.getStyle().set("color", "red").set("font-size", "18px");
+
+        Button backButton = new Button("Back to List", e ->
+                getUI().ifPresent(ui -> ui.navigate("list"))
+        );
+
+        add(errorMessage, backButton);
     }
 }
