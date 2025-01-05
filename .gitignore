@@ -36,3 +36,13 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### BUILD FILE ###
+/frontend/*
+!/frontend/styles.css
+/target/*
+**src/main/dev-bundle/*
+*.ts
+*.json
+!post.json
+**/.DS_Store
